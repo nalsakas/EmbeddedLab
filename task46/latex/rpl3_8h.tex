@@ -1,0 +1,74 @@
+\hypertarget{rpl3_8h}{}\doxysection{rpl3.\+h File Reference}
+\label{rpl3_8h}\index{rpl3.h@{rpl3.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}rpl4.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structraspnet___l3__packet__t}{raspnet\+\_\+\+L3\+\_\+packet\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Level 3 packet format / structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structraspnet___l3__packet__t}{raspnet\+\_\+\+L3\+\_\+packet\+\_\+t}} \mbox{\hyperlink{rpl3_8h_a7f03389ecbfb820b00356f2949a00159}{RPL3\+\_\+\+PACKET}}
+\begin{DoxyCompactList}\small\item\em Level 3 packet format / structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{rpl3_8h_a1e65ca6a3c4dba66c58c8719b8954990}{rpl3\+\_\+send}} (uint8\+\_\+t source, uint8\+\_\+t destination, \mbox{\hyperlink{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}{RPL4\+\_\+\+PACKET}} $\ast$packet\+L4)
+\begin{DoxyCompactList}\small\item\em Send message packet on leyer 3. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rpl3_8h_a1d06584428bf007f524aae8dd8b74fb3}{rpl3\+\_\+receive}} (\mbox{\hyperlink{rpl3_8h_a7f03389ecbfb820b00356f2949a00159}{RPL3\+\_\+\+PACKET}} $\ast$packet)
+\begin{DoxyCompactList}\small\item\em Receives messages on layer 3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{rpl3_8h_a7f03389ecbfb820b00356f2949a00159}\label{rpl3_8h_a7f03389ecbfb820b00356f2949a00159}} 
+\index{rpl3.h@{rpl3.h}!RPL3\_PACKET@{RPL3\_PACKET}}
+\index{RPL3\_PACKET@{RPL3\_PACKET}!rpl3.h@{rpl3.h}}
+\doxysubsubsection{\texorpdfstring{RPL3\_PACKET}{RPL3\_PACKET}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structraspnet___l3__packet__t}{raspnet\+\_\+\+L3\+\_\+packet\+\_\+t}} \mbox{\hyperlink{rpl3_8h_a7f03389ecbfb820b00356f2949a00159}{RPL3\+\_\+\+PACKET}}}
+
+
+
+Level 3 packet format / structure. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rpl3_8h_a1d06584428bf007f524aae8dd8b74fb3}\label{rpl3_8h_a1d06584428bf007f524aae8dd8b74fb3}} 
+\index{rpl3.h@{rpl3.h}!rpl3\_receive@{rpl3\_receive}}
+\index{rpl3\_receive@{rpl3\_receive}!rpl3.h@{rpl3.h}}
+\doxysubsubsection{\texorpdfstring{rpl3\_receive()}{rpl3\_receive()}}
+{\footnotesize\ttfamily int rpl3\+\_\+receive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl3_8h_a7f03389ecbfb820b00356f2949a00159}{RPL3\+\_\+\+PACKET}} $\ast$}]{packet }\end{DoxyParamCaption})}
+
+
+
+Receives messages on layer 3. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & Ponter to L3 message packet structure. Incoming message goes in this packet. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rpl3_8h_a1e65ca6a3c4dba66c58c8719b8954990}\label{rpl3_8h_a1e65ca6a3c4dba66c58c8719b8954990}} 
+\index{rpl3.h@{rpl3.h}!rpl3\_send@{rpl3\_send}}
+\index{rpl3\_send@{rpl3\_send}!rpl3.h@{rpl3.h}}
+\doxysubsubsection{\texorpdfstring{rpl3\_send()}{rpl3\_send()}}
+{\footnotesize\ttfamily void rpl3\+\_\+send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{source,  }\item[{uint8\+\_\+t}]{destination,  }\item[{\mbox{\hyperlink{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}{RPL4\+\_\+\+PACKET}} $\ast$}]{packet\+L4 }\end{DoxyParamCaption})}
+
+
+
+Send message packet on leyer 3. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source address. \\
+\hline
+{\em destination} & Destination address. \\
+\hline
+{\em packet\+L4} & Layer 4 packet to be sent. \\
+\hline
+\end{DoxyParams}

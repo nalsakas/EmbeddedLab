@@ -1,0 +1,33 @@
+\hypertarget{rpl2_8h_source}{}\doxysection{rpl2.\+h}
+\mbox{\hyperlink{rpl2_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_RASPNETL2\_H\_\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_RASPNETL2\_H\_\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{rpl3_8h}{rpl3.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef PREAMBLE}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define PREAMBLE 0b01111110}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#pragma pack(1)}}
+\DoxyCodeLine{13 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structraspnet__frame__t}{raspnet\_frame\_t}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     uint8\_t \mbox{\hyperlink{structraspnet__frame__t_a3140eacf578cd33946709ef278a42398}{preamble}};}
+\DoxyCodeLine{16     uint32\_t \mbox{\hyperlink{structraspnet__frame__t_a879209e900c571246cca458830c6dbbf}{crc}};}
+\DoxyCodeLine{17     uint8\_t \mbox{\hyperlink{structraspnet__frame__t_a001d02534551fcfefff42af61473fd45}{size}};}
+\DoxyCodeLine{18     uint8\_t \mbox{\hyperlink{structraspnet__frame__t_aad126920a365d995e9bcbb2a1d62cf50}{payload}}[255];}
+\DoxyCodeLine{19 \} \mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\_FRAME}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{extern} \mbox{\hyperlink{structraspnet__frame__t}{RPL2\_FRAME}} \mbox{\hyperlink{rpl2_8h_a7246b4acacdd8139931defb3349691e8}{RPL2\_RESEND\_FRAME}}; \textcolor{comment}{//< Level 2 resend cache. Packets not destined to this machine will be forwarded.}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keywordtype}{void} \mbox{\hyperlink{rpl2_8h_add9dbdc68609083492ab75ce022dd4b2}{rpl2\_send}}(\mbox{\hyperlink{structraspnet___l3__packet__t}{RPL3\_PACKET}} *packet);}
+\DoxyCodeLine{24 \textcolor{keywordtype}{void} \mbox{\hyperlink{rpl2_8h_a20da17b58227c442e0cdc5f7a1da8a8e}{rpl2\_resend}}();}
+\DoxyCodeLine{25 \textcolor{keywordtype}{void} \mbox{\hyperlink{rpl2_8h_a3d3c0c76efa1cc292eda56973abc1da2}{rpl2\_relay}}(\mbox{\hyperlink{structraspnet__frame__t}{RPL2\_FRAME}} *pframe);}
+\DoxyCodeLine{26 \textcolor{keywordtype}{int} \mbox{\hyperlink{rpl2_8h_acd51b9070273d38e9ceccde3c3836cea}{rpl2\_receive}}(\mbox{\hyperlink{structraspnet__frame__t}{RPL2\_FRAME}} *frame);}
+\DoxyCodeLine{27 \textcolor{keywordtype}{int} \mbox{\hyperlink{rpl2_8h_a97dfb85a2fa09579bc662a77d9ecd138}{checkCRC}}(\mbox{\hyperlink{structraspnet__frame__t}{RPL2\_FRAME}} *pFrame);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

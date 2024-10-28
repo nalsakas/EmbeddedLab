@@ -1,0 +1,146 @@
+\hypertarget{rpl2_8h}{}\doxysection{rpl2.\+h File Reference}
+\label{rpl2_8h}\index{rpl2.h@{rpl2.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}rpl3.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structraspnet__frame__t}{raspnet\+\_\+frame\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Level 2 frame format / structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{rpl2_8h_a8aac8c5098aaf915463fb31715efa09f}{PREAMBLE}}~0b01111110
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structraspnet__frame__t}{raspnet\+\_\+frame\+\_\+t}} \mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\+\_\+\+FRAME}}
+\begin{DoxyCompactList}\small\item\em Level 2 frame format / structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{rpl2_8h_add9dbdc68609083492ab75ce022dd4b2}{rpl2\+\_\+send}} (\mbox{\hyperlink{rpl3_8h_a7f03389ecbfb820b00356f2949a00159}{RPL3\+\_\+\+PACKET}} $\ast$packet)
+\begin{DoxyCompactList}\small\item\em Send messages on Layer 2. This method requires pointer to the Layer 3 packet structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{rpl2_8h_a20da17b58227c442e0cdc5f7a1da8a8e}{rpl2\+\_\+resend}} ()
+\begin{DoxyCompactList}\small\item\em Resend relay messages. Relay messages are messages which aren\textquotesingle{}t directed to this node on network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{rpl2_8h_a294e8f008971de00b66e16e9cdd4fe53}{rpl2\+\_\+relay}} (\mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\+\_\+\+FRAME}} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Relay messages are messages which aren\textquotesingle{}t directed to this node on network. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rpl2_8h_acd51b9070273d38e9ceccde3c3836cea}{rpl2\+\_\+receive}} (\mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\+\_\+\+FRAME}} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em This method receive messages on Layer 2. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rpl2_8h_a97dfb85a2fa09579bc662a77d9ecd138}{check\+CRC}} (\mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\+\_\+\+FRAME}} $\ast$p\+Frame)
+\begin{DoxyCompactList}\small\item\em This method checks CRC of a given frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\+\_\+\+FRAME}} \mbox{\hyperlink{rpl2_8h_a7246b4acacdd8139931defb3349691e8}{RPL2\+\_\+\+RESEND\+\_\+\+FRAME}}
+\begin{DoxyCompactList}\small\item\em L2 frame cache for redirecting them. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{rpl2_8h_a8aac8c5098aaf915463fb31715efa09f}\label{rpl2_8h_a8aac8c5098aaf915463fb31715efa09f}} 
+\index{rpl2.h@{rpl2.h}!PREAMBLE@{PREAMBLE}}
+\index{PREAMBLE@{PREAMBLE}!rpl2.h@{rpl2.h}}
+\doxysubsubsection{\texorpdfstring{PREAMBLE}{PREAMBLE}}
+{\footnotesize\ttfamily \#define PREAMBLE~0b01111110}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}\label{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}} 
+\index{rpl2.h@{rpl2.h}!RPL2\_FRAME@{RPL2\_FRAME}}
+\index{RPL2\_FRAME@{RPL2\_FRAME}!rpl2.h@{rpl2.h}}
+\doxysubsubsection{\texorpdfstring{RPL2\_FRAME}{RPL2\_FRAME}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structraspnet__frame__t}{raspnet\+\_\+frame\+\_\+t}} \mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\+\_\+\+FRAME}}}
+
+
+
+Level 2 frame format / structure. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rpl2_8h_a97dfb85a2fa09579bc662a77d9ecd138}\label{rpl2_8h_a97dfb85a2fa09579bc662a77d9ecd138}} 
+\index{rpl2.h@{rpl2.h}!checkCRC@{checkCRC}}
+\index{checkCRC@{checkCRC}!rpl2.h@{rpl2.h}}
+\doxysubsubsection{\texorpdfstring{checkCRC()}{checkCRC()}}
+{\footnotesize\ttfamily int check\+CRC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\+\_\+\+FRAME}} $\ast$}]{p\+Frame }\end{DoxyParamCaption})}
+
+
+
+This method checks CRC of a given frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Frame} & Pointer to the frame. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 on success, -\/1 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rpl2_8h_acd51b9070273d38e9ceccde3c3836cea}\label{rpl2_8h_acd51b9070273d38e9ceccde3c3836cea}} 
+\index{rpl2.h@{rpl2.h}!rpl2\_receive@{rpl2\_receive}}
+\index{rpl2\_receive@{rpl2\_receive}!rpl2.h@{rpl2.h}}
+\doxysubsubsection{\texorpdfstring{rpl2\_receive()}{rpl2\_receive()}}
+{\footnotesize\ttfamily int rpl2\+\_\+receive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\+\_\+\+FRAME}} $\ast$}]{frame }\end{DoxyParamCaption})}
+
+
+
+This method receive messages on Layer 2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & Pointer to the frame structure. Incoming message goes in this frame. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rpl2_8h_a294e8f008971de00b66e16e9cdd4fe53}\label{rpl2_8h_a294e8f008971de00b66e16e9cdd4fe53}} 
+\index{rpl2.h@{rpl2.h}!rpl2\_relay@{rpl2\_relay}}
+\index{rpl2\_relay@{rpl2\_relay}!rpl2.h@{rpl2.h}}
+\doxysubsubsection{\texorpdfstring{rpl2\_relay()}{rpl2\_relay()}}
+{\footnotesize\ttfamily void rpl2\+\_\+relay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\+\_\+\+FRAME}} $\ast$}]{frame }\end{DoxyParamCaption})}
+
+
+
+Relay messages are messages which aren\textquotesingle{}t directed to this node on network. 
+
+\mbox{\Hypertarget{rpl2_8h_a20da17b58227c442e0cdc5f7a1da8a8e}\label{rpl2_8h_a20da17b58227c442e0cdc5f7a1da8a8e}} 
+\index{rpl2.h@{rpl2.h}!rpl2\_resend@{rpl2\_resend}}
+\index{rpl2\_resend@{rpl2\_resend}!rpl2.h@{rpl2.h}}
+\doxysubsubsection{\texorpdfstring{rpl2\_resend()}{rpl2\_resend()}}
+{\footnotesize\ttfamily void rpl2\+\_\+resend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resend relay messages. Relay messages are messages which aren\textquotesingle{}t directed to this node on network. 
+
+\mbox{\Hypertarget{rpl2_8h_add9dbdc68609083492ab75ce022dd4b2}\label{rpl2_8h_add9dbdc68609083492ab75ce022dd4b2}} 
+\index{rpl2.h@{rpl2.h}!rpl2\_send@{rpl2\_send}}
+\index{rpl2\_send@{rpl2\_send}!rpl2.h@{rpl2.h}}
+\doxysubsubsection{\texorpdfstring{rpl2\_send()}{rpl2\_send()}}
+{\footnotesize\ttfamily void rpl2\+\_\+send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl3_8h_a7f03389ecbfb820b00356f2949a00159}{RPL3\+\_\+\+PACKET}} $\ast$}]{packet }\end{DoxyParamCaption})}
+
+
+
+Send messages on Layer 2. This method requires pointer to the Layer 3 packet structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & Layer 3 packet to be send. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{rpl2_8h_a7246b4acacdd8139931defb3349691e8}\label{rpl2_8h_a7246b4acacdd8139931defb3349691e8}} 
+\index{rpl2.h@{rpl2.h}!RPL2\_RESEND\_FRAME@{RPL2\_RESEND\_FRAME}}
+\index{RPL2\_RESEND\_FRAME@{RPL2\_RESEND\_FRAME}!rpl2.h@{rpl2.h}}
+\doxysubsubsection{\texorpdfstring{RPL2\_RESEND\_FRAME}{RPL2\_RESEND\_FRAME}}
+{\footnotesize\ttfamily \mbox{\hyperlink{rpl2_8h_a2e04f9355f29e7216438892de67d05a7}{RPL2\+\_\+\+FRAME}} RPL2\+\_\+\+RESEND\+\_\+\+FRAME\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+L2 frame cache for redirecting them. 
+

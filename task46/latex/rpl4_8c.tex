@@ -1,0 +1,193 @@
+\hypertarget{rpl4_8c}{}\doxysection{rpl4.\+c File Reference}
+\label{rpl4_8c}\index{rpl4.c@{rpl4.c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}rpl2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rpl3.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pins.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}api.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rpl4.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{rpl4_8c_acf6101a6f6e91b8002b7a4755403f49e}{rpl4\+\_\+scache\+\_\+add}} (\mbox{\hyperlink{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}{RPL4\+\_\+\+CACHE\+\_\+\+ITEM}} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Adds message to the outgoing cache. This function used internally by \mbox{\hyperlink{rpl4_8c_a9621e3f91cb52e8fb31da95eb6a9f1ba}{rpl4\+\_\+send()}} function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{rpl4_8c_a1bc37194f63f98dbc82db26f861cdf74}{rpl4\+\_\+scache\+\_\+remove}} (uint8\+\_\+t identification)
+\begin{DoxyCompactList}\small\item\em Remove message from the outgoing cache whose id equals to identification. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{rpl4_8c_a8012faf95ab815322cec512b790e4a8b}{rpl4\+\_\+ack\+\_\+resend}} ()
+\begin{DoxyCompactList}\small\item\em This method first sends ACK messages and after that sends resend messages. It is used inside interrupt handler. Messages are removed from the cache after sending. One message is sent at a time. Other cached messages has to wait their turn on following timer interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rpl4_8c_a22f281e454816558761ad0933865e182}{rpl4\+\_\+rcache\+\_\+find}} (uint8\+\_\+t identification)
+\begin{DoxyCompactList}\small\item\em Finds the message/packet inside Layer4 incomming cache. It is used to find out source address of the incoming message. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rpl4_8c_a425c83e3917d120214954ad684bee40e}{rpl4\+\_\+rcache\+\_\+add}} (\mbox{\hyperlink{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}{RPL4\+\_\+\+CACHE\+\_\+\+ITEM}} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Adds message/packet to Layer4 imcomming cache. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{rpl4_8c_a9621e3f91cb52e8fb31da95eb6a9f1ba}{rpl4\+\_\+send}} (uint8\+\_\+t source, uint8\+\_\+t destination, uint8\+\_\+t flags, uint8\+\_\+t $\ast$str)
+\begin{DoxyCompactList}\small\item\em Creates Layer4 packet, fills in structure members and then passes it to the lower levels. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rpl4_8c_ac80ef5ff59c5f98f2d4d06948dcde13d}{rpl4\+\_\+receive}} (\mbox{\hyperlink{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}{RPL4\+\_\+\+PACKET}} $\ast$packet\+L4)
+\begin{DoxyCompactList}\small\item\em Receives Layer4 packet. Fills Layer4 packet structure pointer given in parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{rpl4_8c_ae225fe0b0ee13cb391a684edd58fa0d4}{PACKET\+\_\+\+IDENTIFICATION}} = 1
+\begin{DoxyCompactList}\small\item\em L4 packet identification counter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}{RPL4\+\_\+\+CACHE\+\_\+\+ITEM}} \mbox{\hyperlink{rpl4_8c_afd9891b4a95664ad68de59667380d0b5}{PACKET\+\_\+\+SEND\+\_\+\+CACHE}} \mbox{[}0\mbox{]}
+\begin{DoxyCompactList}\small\item\em L4 packet cache for sended packets. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}{RPL4\+\_\+\+CACHE\+\_\+\+ITEM}} \mbox{\hyperlink{rpl4_8c_a2dd1dd9ce3d333925df66b8f918e53fb}{PACKET\+\_\+\+RECEIVE\+\_\+\+CACHE}} \mbox{[}0\mbox{]}
+\begin{DoxyCompactList}\small\item\em L4 packet cache for received packets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rpl4_8c_a8012faf95ab815322cec512b790e4a8b}\label{rpl4_8c_a8012faf95ab815322cec512b790e4a8b}} 
+\index{rpl4.c@{rpl4.c}!rpl4\_ack\_resend@{rpl4\_ack\_resend}}
+\index{rpl4\_ack\_resend@{rpl4\_ack\_resend}!rpl4.c@{rpl4.c}}
+\doxysubsubsection{\texorpdfstring{rpl4\_ack\_resend()}{rpl4\_ack\_resend()}}
+{\footnotesize\ttfamily void rpl4\+\_\+ack\+\_\+resend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method first sends ACK messages and after that sends resend messages. It is used inside interrupt handler. Messages are removed from the cache after sending. One message is sent at a time. Other cached messages has to wait their turn on following timer interrupts. 
+
+\mbox{\Hypertarget{rpl4_8c_a425c83e3917d120214954ad684bee40e}\label{rpl4_8c_a425c83e3917d120214954ad684bee40e}} 
+\index{rpl4.c@{rpl4.c}!rpl4\_rcache\_add@{rpl4\_rcache\_add}}
+\index{rpl4\_rcache\_add@{rpl4\_rcache\_add}!rpl4.c@{rpl4.c}}
+\doxysubsubsection{\texorpdfstring{rpl4\_rcache\_add()}{rpl4\_rcache\_add()}}
+{\footnotesize\ttfamily int rpl4\+\_\+rcache\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}{RPL4\+\_\+\+CACHE\+\_\+\+ITEM}} $\ast$}]{item }\end{DoxyParamCaption})}
+
+
+
+Adds message/packet to Layer4 imcomming cache. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rpl4_8c_a22f281e454816558761ad0933865e182}\label{rpl4_8c_a22f281e454816558761ad0933865e182}} 
+\index{rpl4.c@{rpl4.c}!rpl4\_rcache\_find@{rpl4\_rcache\_find}}
+\index{rpl4\_rcache\_find@{rpl4\_rcache\_find}!rpl4.c@{rpl4.c}}
+\doxysubsubsection{\texorpdfstring{rpl4\_rcache\_find()}{rpl4\_rcache\_find()}}
+{\footnotesize\ttfamily int rpl4\+\_\+rcache\+\_\+find (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{identification }\end{DoxyParamCaption})}
+
+
+
+Finds the message/packet inside Layer4 incomming cache. It is used to find out source address of the incoming message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em identification} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rpl4_8c_ac80ef5ff59c5f98f2d4d06948dcde13d}\label{rpl4_8c_ac80ef5ff59c5f98f2d4d06948dcde13d}} 
+\index{rpl4.c@{rpl4.c}!rpl4\_receive@{rpl4\_receive}}
+\index{rpl4\_receive@{rpl4\_receive}!rpl4.c@{rpl4.c}}
+\doxysubsubsection{\texorpdfstring{rpl4\_receive()}{rpl4\_receive()}}
+{\footnotesize\ttfamily int rpl4\+\_\+receive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}{RPL4\+\_\+\+PACKET}} $\ast$}]{packet\+L4 }\end{DoxyParamCaption})}
+
+
+
+Receives Layer4 packet. Fills Layer4 packet structure pointer given in parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet\+L4} & Address of the Layer4 packet structure. \\
+\hline
+{\em str} & Data to be sent. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 on success, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rpl4_8c_acf6101a6f6e91b8002b7a4755403f49e}\label{rpl4_8c_acf6101a6f6e91b8002b7a4755403f49e}} 
+\index{rpl4.c@{rpl4.c}!rpl4\_scache\_add@{rpl4\_scache\_add}}
+\index{rpl4\_scache\_add@{rpl4\_scache\_add}!rpl4.c@{rpl4.c}}
+\doxysubsubsection{\texorpdfstring{rpl4\_scache\_add()}{rpl4\_scache\_add()}}
+{\footnotesize\ttfamily int rpl4\+\_\+scache\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}{RPL4\+\_\+\+CACHE\+\_\+\+ITEM}} $\ast$}]{item }\end{DoxyParamCaption})}
+
+
+
+Adds message to the outgoing cache. This function used internally by \mbox{\hyperlink{rpl4_8c_a9621e3f91cb52e8fb31da95eb6a9f1ba}{rpl4\+\_\+send()}} function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Message to be added to the cache. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success returns 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rpl4_8c_a1bc37194f63f98dbc82db26f861cdf74}\label{rpl4_8c_a1bc37194f63f98dbc82db26f861cdf74}} 
+\index{rpl4.c@{rpl4.c}!rpl4\_scache\_remove@{rpl4\_scache\_remove}}
+\index{rpl4\_scache\_remove@{rpl4\_scache\_remove}!rpl4.c@{rpl4.c}}
+\doxysubsubsection{\texorpdfstring{rpl4\_scache\_remove()}{rpl4\_scache\_remove()}}
+{\footnotesize\ttfamily void rpl4\+\_\+scache\+\_\+remove (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{identification }\end{DoxyParamCaption})}
+
+
+
+Remove message from the outgoing cache whose id equals to identification. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em identification} & id if the message to be removed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{rpl4_8c_a9621e3f91cb52e8fb31da95eb6a9f1ba}\label{rpl4_8c_a9621e3f91cb52e8fb31da95eb6a9f1ba}} 
+\index{rpl4.c@{rpl4.c}!rpl4\_send@{rpl4\_send}}
+\index{rpl4\_send@{rpl4\_send}!rpl4.c@{rpl4.c}}
+\doxysubsubsection{\texorpdfstring{rpl4\_send()}{rpl4\_send()}}
+{\footnotesize\ttfamily void rpl4\+\_\+send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{source,  }\item[{uint8\+\_\+t}]{destination,  }\item[{uint8\+\_\+t}]{flags,  }\item[{uint8\+\_\+t $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Creates Layer4 packet, fills in structure members and then passes it to the lower levels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source address \\
+\hline
+{\em destination} & Destination address \\
+\hline
+{\em flags} & Layer4 packet flags \\
+\hline
+{\em str} & Data to be sent \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{rpl4_8c_ae225fe0b0ee13cb391a684edd58fa0d4}\label{rpl4_8c_ae225fe0b0ee13cb391a684edd58fa0d4}} 
+\index{rpl4.c@{rpl4.c}!PACKET\_IDENTIFICATION@{PACKET\_IDENTIFICATION}}
+\index{PACKET\_IDENTIFICATION@{PACKET\_IDENTIFICATION}!rpl4.c@{rpl4.c}}
+\doxysubsubsection{\texorpdfstring{PACKET\_IDENTIFICATION}{PACKET\_IDENTIFICATION}}
+{\footnotesize\ttfamily uint8\+\_\+t PACKET\+\_\+\+IDENTIFICATION = 1}
+
+
+
+L4 packet identification counter. 
+
+\mbox{\Hypertarget{rpl4_8c_a2dd1dd9ce3d333925df66b8f918e53fb}\label{rpl4_8c_a2dd1dd9ce3d333925df66b8f918e53fb}} 
+\index{rpl4.c@{rpl4.c}!PACKET\_RECEIVE\_CACHE@{PACKET\_RECEIVE\_CACHE}}
+\index{PACKET\_RECEIVE\_CACHE@{PACKET\_RECEIVE\_CACHE}!rpl4.c@{rpl4.c}}
+\doxysubsubsection{\texorpdfstring{PACKET\_RECEIVE\_CACHE}{PACKET\_RECEIVE\_CACHE}}
+{\footnotesize\ttfamily \mbox{\hyperlink{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}{RPL4\+\_\+\+CACHE\+\_\+\+ITEM}} PACKET\+\_\+\+RECEIVE\+\_\+\+CACHE\mbox{[}0\mbox{]}}
+
+
+
+L4 packet cache for received packets. 
+
+\mbox{\Hypertarget{rpl4_8c_afd9891b4a95664ad68de59667380d0b5}\label{rpl4_8c_afd9891b4a95664ad68de59667380d0b5}} 
+\index{rpl4.c@{rpl4.c}!PACKET\_SEND\_CACHE@{PACKET\_SEND\_CACHE}}
+\index{PACKET\_SEND\_CACHE@{PACKET\_SEND\_CACHE}!rpl4.c@{rpl4.c}}
+\doxysubsubsection{\texorpdfstring{PACKET\_SEND\_CACHE}{PACKET\_SEND\_CACHE}}
+{\footnotesize\ttfamily \mbox{\hyperlink{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}{RPL4\+\_\+\+CACHE\+\_\+\+ITEM}} PACKET\+\_\+\+SEND\+\_\+\+CACHE\mbox{[}0\mbox{]}}
+
+
+
+L4 packet cache for sended packets. 
+

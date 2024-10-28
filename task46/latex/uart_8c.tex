@@ -1,0 +1,133 @@
+\hypertarget{uart_8c}{}\doxysection{uart.\+c File Reference}
+\label{uart_8c}\index{uart.c@{uart.c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{uart_8c_a66dc17a92418b1104efccc95f7e7ec3f}{uart\+\_\+receive}} ()
+\begin{DoxyCompactList}\small\item\em Receives uart serial character messages from console. This function blocks until a message comes. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{uart_8c_ab101d8f5c54e36c8254ace262aec9d23}{uart\+\_\+receive\+\_\+nb}} ()
+\begin{DoxyCompactList}\small\item\em Receives uart serial character messages from console. This function doesn\textquotesingle{}t block. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{uart_8c_a75fc3c493287afe7225fce0a95138135}{uart\+\_\+send}} (uint8\+\_\+t ch)
+\begin{DoxyCompactList}\small\item\em Sends character over uart serial communication to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{uart_8c_a9479cf5059b2b746b76c9c4f46f85d92}{uart\+\_\+send\+\_\+str}} (uint8\+\_\+t $\ast$str)
+\begin{DoxyCompactList}\small\item\em Sends character array (string) over uart to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{uart_8c_ae65f1a4c035857854fec45921994980b}{uart\+\_\+send\+\_\+bin}} (uint32\+\_\+t num, uint8\+\_\+t newline)
+\begin{DoxyCompactList}\small\item\em Send number to the console as binary number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{uart_8c_a0bbbc3e85693497f5031aaf44711e0a8}{uart\+\_\+send\+\_\+num}} (uint32\+\_\+t num, uint8\+\_\+t newline)
+\begin{DoxyCompactList}\small\item\em Send number to the console as decimal number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{uart_8c_a737b2f035b242eeabe16eee8b5625811}{uart\+\_\+send\+\_\+hex}} (uint32\+\_\+t num, uint8\+\_\+t newline)
+\begin{DoxyCompactList}\small\item\em Send number to the console as hex number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{uart_8c_a66dc17a92418b1104efccc95f7e7ec3f}\label{uart_8c_a66dc17a92418b1104efccc95f7e7ec3f}} 
+\index{uart.c@{uart.c}!uart\_receive@{uart\_receive}}
+\index{uart\_receive@{uart\_receive}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart\_receive()}{uart\_receive()}}
+{\footnotesize\ttfamily unsigned char uart\+\_\+receive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Receives uart serial character messages from console. This function blocks until a message comes. 
+
+\begin{DoxyReturn}{Returns}
+Returns character 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8c_ab101d8f5c54e36c8254ace262aec9d23}\label{uart_8c_ab101d8f5c54e36c8254ace262aec9d23}} 
+\index{uart.c@{uart.c}!uart\_receive\_nb@{uart\_receive\_nb}}
+\index{uart\_receive\_nb@{uart\_receive\_nb}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart\_receive\_nb()}{uart\_receive\_nb()}}
+{\footnotesize\ttfamily unsigned char uart\+\_\+receive\+\_\+nb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Receives uart serial character messages from console. This function doesn\textquotesingle{}t block. 
+
+\begin{DoxyReturn}{Returns}
+Returns character if there is any. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8c_a75fc3c493287afe7225fce0a95138135}\label{uart_8c_a75fc3c493287afe7225fce0a95138135}} 
+\index{uart.c@{uart.c}!uart\_send@{uart\_send}}
+\index{uart\_send@{uart\_send}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart\_send()}{uart\_send()}}
+{\footnotesize\ttfamily void uart\+\_\+send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ch }\end{DoxyParamCaption})}
+
+
+
+Sends character over uart serial communication to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & Character ro be send. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{uart_8c_ae65f1a4c035857854fec45921994980b}\label{uart_8c_ae65f1a4c035857854fec45921994980b}} 
+\index{uart.c@{uart.c}!uart\_send\_bin@{uart\_send\_bin}}
+\index{uart\_send\_bin@{uart\_send\_bin}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart\_send\_bin()}{uart\_send\_bin()}}
+{\footnotesize\ttfamily void uart\+\_\+send\+\_\+bin (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{num,  }\item[{uint8\+\_\+t}]{newline }\end{DoxyParamCaption})}
+
+
+
+Send number to the console as binary number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Number to send to hte console. \\
+\hline
+{\em newline} & Whether to add a newline at the end \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{uart_8c_a737b2f035b242eeabe16eee8b5625811}\label{uart_8c_a737b2f035b242eeabe16eee8b5625811}} 
+\index{uart.c@{uart.c}!uart\_send\_hex@{uart\_send\_hex}}
+\index{uart\_send\_hex@{uart\_send\_hex}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart\_send\_hex()}{uart\_send\_hex()}}
+{\footnotesize\ttfamily void uart\+\_\+send\+\_\+hex (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{num,  }\item[{uint8\+\_\+t}]{newline }\end{DoxyParamCaption})}
+
+
+
+Send number to the console as hex number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Number to send to hte console. \\
+\hline
+{\em newline} & Whether to add a newline at the end \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{uart_8c_a0bbbc3e85693497f5031aaf44711e0a8}\label{uart_8c_a0bbbc3e85693497f5031aaf44711e0a8}} 
+\index{uart.c@{uart.c}!uart\_send\_num@{uart\_send\_num}}
+\index{uart\_send\_num@{uart\_send\_num}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart\_send\_num()}{uart\_send\_num()}}
+{\footnotesize\ttfamily void uart\+\_\+send\+\_\+num (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{num,  }\item[{uint8\+\_\+t}]{newline }\end{DoxyParamCaption})}
+
+
+
+Send number to the console as decimal number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Number to send to hte console. \\
+\hline
+{\em newline} & Whether to add a newline at the end \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{uart_8c_a9479cf5059b2b746b76c9c4f46f85d92}\label{uart_8c_a9479cf5059b2b746b76c9c4f46f85d92}} 
+\index{uart.c@{uart.c}!uart\_send\_str@{uart\_send\_str}}
+\index{uart\_send\_str@{uart\_send\_str}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart\_send\_str()}{uart\_send\_str()}}
+{\footnotesize\ttfamily void uart\+\_\+send\+\_\+str (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Sends character array (string) over uart to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String to be send. \\
+\hline
+\end{DoxyParams}

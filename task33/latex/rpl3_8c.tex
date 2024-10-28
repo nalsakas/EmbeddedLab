@@ -1,0 +1,58 @@
+\hypertarget{rpl3_8c}{}\doxysection{rpl3.\+c File Reference}
+\label{rpl3_8c}\index{rpl3.c@{rpl3.c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}rpl3.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rpl2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}crc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pins.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}api.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{rpl3_8c_aae82c7b35102554ccdda41accc651406}{rpl3\+\_\+send}} (uint8\+\_\+t source, uint8\+\_\+t destination, uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Send packages on layer 3. This method requires source address, destination address and pointer to the data buffer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rpl3_8c_a1d06584428bf007f524aae8dd8b74fb3}{rpl3\+\_\+receive}} (\mbox{\hyperlink{rpl3_8h_a7f03389ecbfb820b00356f2949a00159}{RPL3\+\_\+\+PACKET}} $\ast$packet)
+\begin{DoxyCompactList}\small\item\em Receive packeges on layer 3. Checks source and destination addreses of incoming messages. Depending on the situation either packets accepted or rejected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rpl3_8c_a1d06584428bf007f524aae8dd8b74fb3}\label{rpl3_8c_a1d06584428bf007f524aae8dd8b74fb3}} 
+\index{rpl3.c@{rpl3.c}!rpl3\_receive@{rpl3\_receive}}
+\index{rpl3\_receive@{rpl3\_receive}!rpl3.c@{rpl3.c}}
+\doxysubsubsection{\texorpdfstring{rpl3\_receive()}{rpl3\_receive()}}
+{\footnotesize\ttfamily int rpl3\+\_\+receive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl3_8h_a7f03389ecbfb820b00356f2949a00159}{RPL3\+\_\+\+PACKET}} $\ast$}]{packet }\end{DoxyParamCaption})}
+
+
+
+Receive packeges on layer 3. Checks source and destination addreses of incoming messages. Depending on the situation either packets accepted or rejected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & Ponter to L3 message packet structure. Incoming message goes in this packet. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rpl3_8c_aae82c7b35102554ccdda41accc651406}\label{rpl3_8c_aae82c7b35102554ccdda41accc651406}} 
+\index{rpl3.c@{rpl3.c}!rpl3\_send@{rpl3\_send}}
+\index{rpl3\_send@{rpl3\_send}!rpl3.c@{rpl3.c}}
+\doxysubsubsection{\texorpdfstring{rpl3\_send()}{rpl3\_send()}}
+{\footnotesize\ttfamily void rpl3\+\_\+send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{source,  }\item[{uint8\+\_\+t}]{destination,  }\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Send packages on layer 3. This method requires source address, destination address and pointer to the data buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source address. \\
+\hline
+{\em destination} & Destination address. \\
+\hline
+{\em packet\+L4} & Layer 4 packet to be sent. \\
+\hline
+\end{DoxyParams}

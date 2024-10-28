@@ -1,0 +1,199 @@
+\hypertarget{api_8c}{}\doxysection{api.\+c File Reference}
+\label{api_8c}\index{api.c@{api.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}rpl1.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rpl4.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}api.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{api_8c_acb1f1be4c40d6c8f25f36bdee4276df0}{api\+\_\+handle\+\_\+packet}} (\mbox{\hyperlink{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}{RPL4\+\_\+\+PACKET}} $\ast$packet)
+\begin{DoxyCompactList}\small\item\em Format and sends incoming massage to console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{api_8c_a83431b458beb007ff2788634396ffcd0}{api\+\_\+status}} ()
+\begin{DoxyCompactList}\small\item\em Sends current transmit status of the node to the console. Status is either BUSY or OK. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{api_8c_ad3156837939765a0fadc653f8c7fd7ba}{api\+\_\+push}} ()
+\begin{DoxyCompactList}\small\item\em Sends the message through layer 4 and sends result to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{api_8c_ad107ef08fff339fcc329b9b24cfc8cc2}{api\+\_\+parse\+\_\+command}} (uint8\+\_\+t $\ast$$\ast$line, uint8\+\_\+t $\ast$command)
+\begin{DoxyCompactList}\small\item\em Parses the line and extracts the command. Sends result of the action to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{api_8c_a2e2ee0dc4e083ff63d7c8d3cf92cd7dc}{api\+\_\+parse\+\_\+int}} (uint8\+\_\+t $\ast$$\ast$line, uint8\+\_\+t $\ast$pval)
+\begin{DoxyCompactList}\small\item\em Parses the line and extracts the integer value. Sends result of the action to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{api_8c_a761ab3a8d92a81a71ca7058063c089c6}{api\+\_\+parse\+\_\+data}} (uint8\+\_\+t $\ast$$\ast$line, uint8\+\_\+t data\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Parses the line and extracts the string value. Sends result of the action to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{api_8c_aa8ae02a9caa4310b4a612d58d2ff085a}{api\+\_\+handle\+\_\+line}} (uint8\+\_\+t $\ast$line)
+\begin{DoxyCompactList}\small\item\em Parses the line and depending on the command it contains calls appropriate methods. Sends result of the action to the console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{api_8c_a20f2dd2dd1ec6f907c16b39268ca92c3}{API\+\_\+\+ADDRESS}} = 0
+\begin{DoxyCompactList}\small\item\em Source Address. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{api_8c_a842863370945a34c37a21b75c10793b8}{API\+\_\+\+BIND}} = 0
+\begin{DoxyCompactList}\small\item\em Destination Address. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{api_8c_aff9e9588036f3cb5d342f4bba3987ed3}{API\+\_\+\+BROADCAST}} = 0
+\begin{DoxyCompactList}\small\item\em Broadcast Address. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{api_8c_aa810a642782f451c26e70ec735c43d62}{API\+\_\+\+DATA}} \mbox{[}100\mbox{]}
+\begin{DoxyCompactList}\small\item\em Data to send. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{api_8c_aa8ae02a9caa4310b4a612d58d2ff085a}\label{api_8c_aa8ae02a9caa4310b4a612d58d2ff085a}} 
+\index{api.c@{api.c}!api\_handle\_line@{api\_handle\_line}}
+\index{api\_handle\_line@{api\_handle\_line}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{api\_handle\_line()}{api\_handle\_line()}}
+{\footnotesize\ttfamily void api\+\_\+handle\+\_\+line (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{line }\end{DoxyParamCaption})}
+
+
+
+Parses the line and depending on the command it contains calls appropriate methods. Sends result of the action to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to be parsed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{api_8c_acb1f1be4c40d6c8f25f36bdee4276df0}\label{api_8c_acb1f1be4c40d6c8f25f36bdee4276df0}} 
+\index{api.c@{api.c}!api\_handle\_packet@{api\_handle\_packet}}
+\index{api\_handle\_packet@{api\_handle\_packet}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{api\_handle\_packet()}{api\_handle\_packet()}}
+{\footnotesize\ttfamily void api\+\_\+handle\+\_\+packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}{RPL4\+\_\+\+PACKET}} $\ast$}]{packet }\end{DoxyParamCaption})}
+
+
+
+Format and sends incoming massage to console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & Message to be showed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{api_8c_ad107ef08fff339fcc329b9b24cfc8cc2}\label{api_8c_ad107ef08fff339fcc329b9b24cfc8cc2}} 
+\index{api.c@{api.c}!api\_parse\_command@{api\_parse\_command}}
+\index{api\_parse\_command@{api\_parse\_command}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{api\_parse\_command()}{api\_parse\_command()}}
+{\footnotesize\ttfamily void api\+\_\+parse\+\_\+command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$$\ast$}]{line,  }\item[{uint8\+\_\+t $\ast$}]{command }\end{DoxyParamCaption})}
+
+
+
+Parses the line and extracts the command. Sends result of the action to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to be parsed. \\
+\hline
+{\em command} & Pointer to the command variable. Extracted value will be put inside this variable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{api_8c_a761ab3a8d92a81a71ca7058063c089c6}\label{api_8c_a761ab3a8d92a81a71ca7058063c089c6}} 
+\index{api.c@{api.c}!api\_parse\_data@{api\_parse\_data}}
+\index{api\_parse\_data@{api\_parse\_data}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{api\_parse\_data()}{api\_parse\_data()}}
+{\footnotesize\ttfamily void api\+\_\+parse\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$$\ast$}]{line,  }\item[{uint8\+\_\+t}]{data\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Parses the line and extracts the string value. Sends result of the action to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to be parsed. \\
+\hline
+{\em data} & Address of the buffer. Extracted string will be put inside this buffer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{api_8c_a2e2ee0dc4e083ff63d7c8d3cf92cd7dc}\label{api_8c_a2e2ee0dc4e083ff63d7c8d3cf92cd7dc}} 
+\index{api.c@{api.c}!api\_parse\_int@{api\_parse\_int}}
+\index{api\_parse\_int@{api\_parse\_int}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{api\_parse\_int()}{api\_parse\_int()}}
+{\footnotesize\ttfamily void api\+\_\+parse\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$$\ast$}]{line,  }\item[{uint8\+\_\+t $\ast$}]{pval }\end{DoxyParamCaption})}
+
+
+
+Parses the line and extracts the integer value. Sends result of the action to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to be parsed. \\
+\hline
+{\em pval} & Pointer to the integer variable. Extracted value will be put inside this variable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{api_8c_ad3156837939765a0fadc653f8c7fd7ba}\label{api_8c_ad3156837939765a0fadc653f8c7fd7ba}} 
+\index{api.c@{api.c}!api\_push@{api\_push}}
+\index{api\_push@{api\_push}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{api\_push()}{api\_push()}}
+{\footnotesize\ttfamily void api\+\_\+push (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sends the message through layer 4 and sends result to the console. 
+
+\mbox{\Hypertarget{api_8c_a83431b458beb007ff2788634396ffcd0}\label{api_8c_a83431b458beb007ff2788634396ffcd0}} 
+\index{api.c@{api.c}!api\_status@{api\_status}}
+\index{api\_status@{api\_status}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{api\_status()}{api\_status()}}
+{\footnotesize\ttfamily void api\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sends current transmit status of the node to the console. Status is either BUSY or OK. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{api_8c_a20f2dd2dd1ec6f907c16b39268ca92c3}\label{api_8c_a20f2dd2dd1ec6f907c16b39268ca92c3}} 
+\index{api.c@{api.c}!API\_ADDRESS@{API\_ADDRESS}}
+\index{API\_ADDRESS@{API\_ADDRESS}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{API\_ADDRESS}{API\_ADDRESS}}
+{\footnotesize\ttfamily uint8\+\_\+t API\+\_\+\+ADDRESS = 0}
+
+
+
+Source Address. 
+
+\mbox{\Hypertarget{api_8c_a842863370945a34c37a21b75c10793b8}\label{api_8c_a842863370945a34c37a21b75c10793b8}} 
+\index{api.c@{api.c}!API\_BIND@{API\_BIND}}
+\index{API\_BIND@{API\_BIND}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{API\_BIND}{API\_BIND}}
+{\footnotesize\ttfamily uint8\+\_\+t API\+\_\+\+BIND = 0}
+
+
+
+Destination Address. 
+
+\mbox{\Hypertarget{api_8c_aff9e9588036f3cb5d342f4bba3987ed3}\label{api_8c_aff9e9588036f3cb5d342f4bba3987ed3}} 
+\index{api.c@{api.c}!API\_BROADCAST@{API\_BROADCAST}}
+\index{API\_BROADCAST@{API\_BROADCAST}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{API\_BROADCAST}{API\_BROADCAST}}
+{\footnotesize\ttfamily uint8\+\_\+t API\+\_\+\+BROADCAST = 0}
+
+
+
+Broadcast Address. 
+
+\mbox{\Hypertarget{api_8c_aa810a642782f451c26e70ec735c43d62}\label{api_8c_aa810a642782f451c26e70ec735c43d62}} 
+\index{api.c@{api.c}!API\_DATA@{API\_DATA}}
+\index{API\_DATA@{API\_DATA}!api.c@{api.c}}
+\doxysubsubsection{\texorpdfstring{API\_DATA}{API\_DATA}}
+{\footnotesize\ttfamily uint8\+\_\+t API\+\_\+\+DATA\mbox{[}100\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}
+\DoxyCodeLine{    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}
+\DoxyCodeLine{    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}
+\DoxyCodeLine{    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}
+\DoxyCodeLine{    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}
+\DoxyCodeLine{    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}
+\DoxyCodeLine{    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}
+\DoxyCodeLine{    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}
+\DoxyCodeLine{    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}
+\DoxyCodeLine{    0, 0, 0, 0, 0, 0, 0, 0, 0, 0\}}
+
+\end{DoxyCode}
+
+
+Data to send. 
+

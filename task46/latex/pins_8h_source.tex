@@ -1,0 +1,29 @@
+\hypertarget{pins_8h_source}{}\doxysection{pins.\+h}
+\mbox{\hyperlink{pins_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_PINS\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_PINS\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifndef F\_CPU}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define F\_CPU 12000000UL}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef BAUD}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define BAUD 9600}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define F\_CPU\_PRESCALED (F\_CPU / 1024.0)}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define RASPNET\_DELAY\_MS (10 / 2.0)}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define RASPNET\_DELAY (RASPNET\_DELAY\_MS / 1000.0)}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define RASPNET\_COUNTER (uint8\_t)(RASPNET\_DELAY * F\_CPU\_PRESCALED -\/ 1)}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define JOB\_COUNTER (uint16\_t)(5 * F\_CPU\_PRESCALED -\/ 1)}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keywordtype}{void} \mbox{\hyperlink{pins_8h_a6f7f696a057e35c454b6b4c55ef5e5e6}{pins\_init}}();}
+\DoxyCodeLine{19 \textcolor{keywordtype}{void} \mbox{\hyperlink{pins_8h_a558cabdd896cc080722f883e410f7498}{pins\_clock}}();}
+\DoxyCodeLine{20 \textcolor{keywordtype}{void} \mbox{\hyperlink{pins_8h_a1f97834ba85500b377325891a1629406}{pins\_enable\_relay}}();}
+\DoxyCodeLine{21 \textcolor{keywordtype}{void} \mbox{\hyperlink{pins_8h_a7a1236f426f55342f6070538560e091d}{pins\_disable\_relay}}();}
+\DoxyCodeLine{22 \textcolor{keywordtype}{void} \mbox{\hyperlink{pins_8h_a5c4f3bc13e6e0c3429c076c25ae8b536}{pins\_led\_toggle}}();}
+\DoxyCodeLine{23 \textcolor{keywordtype}{void} \mbox{\hyperlink{pins_8h_abcc43eb4bbc96eb3385e65c88d1ec65d}{pins\_timer1\_reset}}();}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

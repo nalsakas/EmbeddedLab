@@ -1,0 +1,154 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rpl1.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rpl2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rpl3.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}api.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pins.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~12000000\+UL
+\item 
+\#define \mbox{\hyperlink{main_8c_a62634036639f88eece6fbf226b45f84b}{BAUD}}~9600
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8c_a9c4665742c6b6eb1f0bb9dde41f7cba3}{ISR}} (PCINT2\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em Interrupt service routine for PIN change. Toggles LEDs and receives messages on layer 1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{main_8c_aec43762dc86e029b395d4e5819192c2d}{ISR}} (TIMER0\+\_\+\+COMPA\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em Interrupt service routine for Timer 0. Disables timer and relays messages that are not destined to this node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{main_8c_ad39420cdd896dd12c68e36313139d0a5}{ISR}} (TIMER1\+\_\+\+COMPA\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em Interrupt service routine for Timer 1. Send ACK and Resend messages on layer 4. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{main_8c_a5686c229bdef50123688ab6cb1404230}{ISR}} (TIMER2\+\_\+\+COMPA\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em Interrupt service routine for Timer 2. Generates clock signal and sends layer 1 messages. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a1018a5e313022f9e86adc82ea8382823}{uart2rp}} ()
+\begin{DoxyCompactList}\small\item\em Receives command lines from termnal and pass them to API. This method is used inside main loop of the program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ad43c48fac687d9f0379684b910c45781}{rp2uart}} ()
+\begin{DoxyCompactList}\small\item\em Receives layer 4 messages and pass them to API. This method is used inside main loop of the program. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_aff31312fb16705aa73c53b945a1a6b30}{flag}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8c_a62634036639f88eece6fbf226b45f84b}\label{main_8c_a62634036639f88eece6fbf226b45f84b}} 
+\index{main.c@{main.c}!BAUD@{BAUD}}
+\index{BAUD@{BAUD}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{BAUD}{BAUD}}
+{\footnotesize\ttfamily \#define BAUD~9600}
+
+\mbox{\Hypertarget{main_8c_a43bafb28b29491ec7f871319b5a3b2f8}\label{main_8c_a43bafb28b29491ec7f871319b5a3b2f8}} 
+\index{main.c@{main.c}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \#define F\+\_\+\+CPU~12000000\+UL}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a9c4665742c6b6eb1f0bb9dde41f7cba3}\label{main_8c_a9c4665742c6b6eb1f0bb9dde41f7cba3}} 
+\index{main.c@{main.c}!ISR@{ISR}}
+\index{ISR@{ISR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{PCINT2\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt service routine for PIN change. Toggles LEDs and receives messages on layer 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interrupt} & vector number. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_aec43762dc86e029b395d4e5819192c2d}\label{main_8c_aec43762dc86e029b395d4e5819192c2d}} 
+\index{main.c@{main.c}!ISR@{ISR}}
+\index{ISR@{ISR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{TIMER0\+\_\+\+COMPA\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt service routine for Timer 0. Disables timer and relays messages that are not destined to this node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interrupt} & vector number. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_ad39420cdd896dd12c68e36313139d0a5}\label{main_8c_ad39420cdd896dd12c68e36313139d0a5}} 
+\index{main.c@{main.c}!ISR@{ISR}}
+\index{ISR@{ISR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{TIMER1\+\_\+\+COMPA\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt service routine for Timer 1. Send ACK and Resend messages on layer 4. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interrupt} & vector number. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a5686c229bdef50123688ab6cb1404230}\label{main_8c_a5686c229bdef50123688ab6cb1404230}} 
+\index{main.c@{main.c}!ISR@{ISR}}
+\index{ISR@{ISR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{TIMER2\+\_\+\+COMPA\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt service routine for Timer 2. Generates clock signal and sends layer 1 messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interrupt} & vector number. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_ad43c48fac687d9f0379684b910c45781}\label{main_8c_ad43c48fac687d9f0379684b910c45781}} 
+\index{main.c@{main.c}!rp2uart@{rp2uart}}
+\index{rp2uart@{rp2uart}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rp2uart()}{rp2uart()}}
+{\footnotesize\ttfamily void rp2uart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Receives layer 4 messages and pass them to API. This method is used inside main loop of the program. 
+
+\mbox{\Hypertarget{main_8c_a1018a5e313022f9e86adc82ea8382823}\label{main_8c_a1018a5e313022f9e86adc82ea8382823}} 
+\index{main.c@{main.c}!uart2rp@{uart2rp}}
+\index{uart2rp@{uart2rp}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{uart2rp()}{uart2rp()}}
+{\footnotesize\ttfamily void uart2rp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Receives command lines from termnal and pass them to API. This method is used inside main loop of the program. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_aff31312fb16705aa73c53b945a1a6b30}\label{main_8c_aff31312fb16705aa73c53b945a1a6b30}} 
+\index{main.c@{main.c}!flag@{flag}}
+\index{flag@{flag}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{flag}{flag}}
+{\footnotesize\ttfamily uint8\+\_\+t flag = 0}
+
+This flag causes clock and data to take turns. Only one of them will execute when clock hits. 

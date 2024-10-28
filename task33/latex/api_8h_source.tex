@@ -1,0 +1,20 @@
+\hypertarget{api_8h_source}{}\doxysection{api.\+h}
+\mbox{\hyperlink{api_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_API\_H\_\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_API\_H\_\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define MIN(a, b) (((a) < (b)) ? (a) : (b))}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define MAX(a, b) (((a) > (b)) ? (a) : (b))}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{extern} uint8\_t \mbox{\hyperlink{api_8h_a20f2dd2dd1ec6f907c16b39268ca92c3}{API\_ADDRESS}};   \textcolor{comment}{//< Holds source address}}
+\DoxyCodeLine{8 \textcolor{keyword}{extern} uint8\_t \mbox{\hyperlink{api_8h_a842863370945a34c37a21b75c10793b8}{API\_BIND}};      \textcolor{comment}{//< Holds destination address}}
+\DoxyCodeLine{9 \textcolor{keyword}{extern} uint8\_t \mbox{\hyperlink{api_8h_aff9e9588036f3cb5d342f4bba3987ed3}{API\_BROADCAST}}; \textcolor{comment}{//< Holds broadcast address}}
+\DoxyCodeLine{10 \textcolor{keyword}{extern} uint8\_t \mbox{\hyperlink{api_8h_a5052aafca41746eb292ab0f11bed2443}{API\_DATA}}[250]; \textcolor{comment}{//< Holds data to be sent}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keywordtype}{void} \mbox{\hyperlink{api_8h_aa8ae02a9caa4310b4a612d58d2ff085a}{api\_handle\_line}}(uint8\_t *line);}
+\DoxyCodeLine{13 \textcolor{keywordtype}{void} \mbox{\hyperlink{api_8h_a77a89957dca3e94cc3f04ee5dd084443}{api\_handle\_packet}}(\mbox{\hyperlink{structraspnet___l3__packet__t}{RPL3\_PACKET}} *packet);}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

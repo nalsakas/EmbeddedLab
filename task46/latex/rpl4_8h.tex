@@ -1,0 +1,153 @@
+\hypertarget{rpl4_8h}{}\doxysection{rpl4.\+h File Reference}
+\label{rpl4_8h}\index{rpl4.h@{rpl4.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_l4__packet}{L4\+\_\+packet}}
+\begin{DoxyCompactList}\small\item\em Level 4 packet format / structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_l4__cache__item}{L4\+\_\+cache\+\_\+item}}
+\begin{DoxyCompactList}\small\item\em Level 4 cache packet format / structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{rpl4_8h_a1e1c7aaba77351880156bc59c3ad2a0e}{RPL4\+\_\+\+FLAGS\+\_\+\+ACK}}~0x1
+\item 
+\#define \mbox{\hyperlink{rpl4_8h_a8503b6d4724420b1cbb759ab39d96b31}{RPL4\+\_\+\+FLAGS\+\_\+\+DGRAM}}~0x2
+\item 
+\#define \mbox{\hyperlink{rpl4_8h_aeb19a0a6f9a4c520d8c58d5273365fdd}{RPL4\+\_\+\+FLAGS\+\_\+\+FC}}~0x\+FC
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_l4__packet}{L4\+\_\+packet}} \mbox{\hyperlink{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}{RPL4\+\_\+\+PACKET}}
+\begin{DoxyCompactList}\small\item\em Level 4 packet format / structure. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_l4__cache__item}{L4\+\_\+cache\+\_\+item}} \mbox{\hyperlink{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}{RPL4\+\_\+\+CACHE\+\_\+\+ITEM}}
+\begin{DoxyCompactList}\small\item\em Level 4 cache packet format / structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{rpl4_8h_a9621e3f91cb52e8fb31da95eb6a9f1ba}{rpl4\+\_\+send}} (uint8\+\_\+t source, uint8\+\_\+t destination, uint8\+\_\+t flags, uint8\+\_\+t $\ast$str)
+\begin{DoxyCompactList}\small\item\em Creates Layer4 packet, fills in structure members and then passes it to the lower levels. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rpl4_8h_ac80ef5ff59c5f98f2d4d06948dcde13d}{rpl4\+\_\+receive}} (\mbox{\hyperlink{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}{RPL4\+\_\+\+PACKET}} $\ast$packet\+L4)
+\begin{DoxyCompactList}\small\item\em Receives Layer4 packet. Fills Layer4 packet structure pointer given in parameters. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rpl4_8h_a22f281e454816558761ad0933865e182}{rpl4\+\_\+rcache\+\_\+find}} (uint8\+\_\+t identification)
+\begin{DoxyCompactList}\small\item\em Finds the message/packet inside Layer4 incomming cache. It is used to find out source address of the incoming message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{rpl4_8h_a8012faf95ab815322cec512b790e4a8b}{rpl4\+\_\+ack\+\_\+resend}} ()
+\begin{DoxyCompactList}\small\item\em This method first sends ACK messages and after that sends resend messages. It is used inside interrupt handler. Messages are removed from the cache after sending. One message is sent at a time. Other cached messages has to wait their turn on following timer interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{rpl4_8h_a1e1c7aaba77351880156bc59c3ad2a0e}\label{rpl4_8h_a1e1c7aaba77351880156bc59c3ad2a0e}} 
+\index{rpl4.h@{rpl4.h}!RPL4\_FLAGS\_ACK@{RPL4\_FLAGS\_ACK}}
+\index{RPL4\_FLAGS\_ACK@{RPL4\_FLAGS\_ACK}!rpl4.h@{rpl4.h}}
+\doxysubsubsection{\texorpdfstring{RPL4\_FLAGS\_ACK}{RPL4\_FLAGS\_ACK}}
+{\footnotesize\ttfamily \#define RPL4\+\_\+\+FLAGS\+\_\+\+ACK~0x1}
+
+\mbox{\Hypertarget{rpl4_8h_a8503b6d4724420b1cbb759ab39d96b31}\label{rpl4_8h_a8503b6d4724420b1cbb759ab39d96b31}} 
+\index{rpl4.h@{rpl4.h}!RPL4\_FLAGS\_DGRAM@{RPL4\_FLAGS\_DGRAM}}
+\index{RPL4\_FLAGS\_DGRAM@{RPL4\_FLAGS\_DGRAM}!rpl4.h@{rpl4.h}}
+\doxysubsubsection{\texorpdfstring{RPL4\_FLAGS\_DGRAM}{RPL4\_FLAGS\_DGRAM}}
+{\footnotesize\ttfamily \#define RPL4\+\_\+\+FLAGS\+\_\+\+DGRAM~0x2}
+
+\mbox{\Hypertarget{rpl4_8h_aeb19a0a6f9a4c520d8c58d5273365fdd}\label{rpl4_8h_aeb19a0a6f9a4c520d8c58d5273365fdd}} 
+\index{rpl4.h@{rpl4.h}!RPL4\_FLAGS\_FC@{RPL4\_FLAGS\_FC}}
+\index{RPL4\_FLAGS\_FC@{RPL4\_FLAGS\_FC}!rpl4.h@{rpl4.h}}
+\doxysubsubsection{\texorpdfstring{RPL4\_FLAGS\_FC}{RPL4\_FLAGS\_FC}}
+{\footnotesize\ttfamily \#define RPL4\+\_\+\+FLAGS\+\_\+\+FC~0x\+FC}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}\label{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}} 
+\index{rpl4.h@{rpl4.h}!RPL4\_CACHE\_ITEM@{RPL4\_CACHE\_ITEM}}
+\index{RPL4\_CACHE\_ITEM@{RPL4\_CACHE\_ITEM}!rpl4.h@{rpl4.h}}
+\doxysubsubsection{\texorpdfstring{RPL4\_CACHE\_ITEM}{RPL4\_CACHE\_ITEM}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_l4__cache__item}{L4\+\_\+cache\+\_\+item}} \mbox{\hyperlink{rpl4_8h_abaa38853744e84ecd2e8128a9981cf5c}{RPL4\+\_\+\+CACHE\+\_\+\+ITEM}}}
+
+
+
+Level 4 cache packet format / structure. 
+
+\mbox{\Hypertarget{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}\label{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}} 
+\index{rpl4.h@{rpl4.h}!RPL4\_PACKET@{RPL4\_PACKET}}
+\index{RPL4\_PACKET@{RPL4\_PACKET}!rpl4.h@{rpl4.h}}
+\doxysubsubsection{\texorpdfstring{RPL4\_PACKET}{RPL4\_PACKET}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_l4__packet}{L4\+\_\+packet}} \mbox{\hyperlink{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}{RPL4\+\_\+\+PACKET}}}
+
+
+
+Level 4 packet format / structure. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rpl4_8h_a8012faf95ab815322cec512b790e4a8b}\label{rpl4_8h_a8012faf95ab815322cec512b790e4a8b}} 
+\index{rpl4.h@{rpl4.h}!rpl4\_ack\_resend@{rpl4\_ack\_resend}}
+\index{rpl4\_ack\_resend@{rpl4\_ack\_resend}!rpl4.h@{rpl4.h}}
+\doxysubsubsection{\texorpdfstring{rpl4\_ack\_resend()}{rpl4\_ack\_resend()}}
+{\footnotesize\ttfamily void rpl4\+\_\+ack\+\_\+resend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method first sends ACK messages and after that sends resend messages. It is used inside interrupt handler. Messages are removed from the cache after sending. One message is sent at a time. Other cached messages has to wait their turn on following timer interrupts. 
+
+\mbox{\Hypertarget{rpl4_8h_a22f281e454816558761ad0933865e182}\label{rpl4_8h_a22f281e454816558761ad0933865e182}} 
+\index{rpl4.h@{rpl4.h}!rpl4\_rcache\_find@{rpl4\_rcache\_find}}
+\index{rpl4\_rcache\_find@{rpl4\_rcache\_find}!rpl4.h@{rpl4.h}}
+\doxysubsubsection{\texorpdfstring{rpl4\_rcache\_find()}{rpl4\_rcache\_find()}}
+{\footnotesize\ttfamily int rpl4\+\_\+rcache\+\_\+find (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{identification }\end{DoxyParamCaption})}
+
+
+
+Finds the message/packet inside Layer4 incomming cache. It is used to find out source address of the incoming message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em identification} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rpl4_8h_ac80ef5ff59c5f98f2d4d06948dcde13d}\label{rpl4_8h_ac80ef5ff59c5f98f2d4d06948dcde13d}} 
+\index{rpl4.h@{rpl4.h}!rpl4\_receive@{rpl4\_receive}}
+\index{rpl4\_receive@{rpl4\_receive}!rpl4.h@{rpl4.h}}
+\doxysubsubsection{\texorpdfstring{rpl4\_receive()}{rpl4\_receive()}}
+{\footnotesize\ttfamily int rpl4\+\_\+receive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rpl4_8h_aaf1a71c1875dad4c768957f6cf0dfccc}{RPL4\+\_\+\+PACKET}} $\ast$}]{packet\+L4 }\end{DoxyParamCaption})}
+
+
+
+Receives Layer4 packet. Fills Layer4 packet structure pointer given in parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet\+L4} & Address of the Layer4 packet structure. \\
+\hline
+{\em str} & Data to be sent. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 on success, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rpl4_8h_a9621e3f91cb52e8fb31da95eb6a9f1ba}\label{rpl4_8h_a9621e3f91cb52e8fb31da95eb6a9f1ba}} 
+\index{rpl4.h@{rpl4.h}!rpl4\_send@{rpl4\_send}}
+\index{rpl4\_send@{rpl4\_send}!rpl4.h@{rpl4.h}}
+\doxysubsubsection{\texorpdfstring{rpl4\_send()}{rpl4\_send()}}
+{\footnotesize\ttfamily void rpl4\+\_\+send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{source,  }\item[{uint8\+\_\+t}]{destination,  }\item[{uint8\+\_\+t}]{flags,  }\item[{uint8\+\_\+t $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Creates Layer4 packet, fills in structure members and then passes it to the lower levels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source address \\
+\hline
+{\em destination} & Destination address \\
+\hline
+{\em flags} & Layer4 packet flags \\
+\hline
+{\em str} & Data to be sent \\
+\hline
+\end{DoxyParams}
